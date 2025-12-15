@@ -85,24 +85,24 @@ sudo nano /var/snap/microk8s/current/args/cni-network/cni.yaml # 입력 후 아�
 kind: ConfigMap
 ...
 data:
-		...
-		cni_network_config: |-
-				{
-						...
-						"plugins": [
-								{
-										"type": "calico",
-										...
-										"kubernetes": {
-												"kubeconfig": "**KUBECONFIG_FILEPATH**"
-										},
-										# append IP forwarding settings
-										"container_settings": {
-												"allow_ip_forwarding": true
-										} # 여기 ',' 없는 거 중요
-								}
-						]
-				}
+  ...
+  cni_network_config: |-
+    {
+      ...
+      "plugins": [
+        {
+          "type": "calico",
+          ...
+          "kubernetes": {
+            "kubeconfig": "**KUBECONFIG_FILEPATH**"
+          },
+          # append IP forwarding settings
+          "container_settings": {
+            "allow_ip_forwarding": true
+          } # 여기 ',' 없는 거 중요
+        }
+      ]
+    }
 ```
 
 ## 2. IP 포워딩을 위해 kubulet args 설정
